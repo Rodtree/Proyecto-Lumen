@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Plantilla reducida
@@ -26,23 +27,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Enlace 1 Izquierdo</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Enlace 2 Izquierdo</a>
-      </li>
-    </ul>
-
-    <!-- Elementos para colocar en el navbar derecho -->
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Enlace 1 Derecho</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Enlace 2 Derecho</a>
-      </li>
-
+    
     </ul>
 
 
@@ -53,21 +38,12 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="img-Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">text-logo</span>
+      <img src="/landinpage/imagen_logo.jpg" alt="img-Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">LDMPaperic</span>
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Perfil usuario</a>
-        </div>
-      </div>
+  
 
 
       <!-- Sidebar Menu -->
@@ -86,29 +62,18 @@
               <li class="nav-item">
                 <a href="./index.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Submenú 1</p>
+                  <p>sensores</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="./index2.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Submenú 2</p>
+                  <p>productos</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Menú
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-         
-          <li class="nav-header">Separador</li>  
-        </ul>
+        
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -118,119 +83,138 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
-          </div><!-- /.col -->
-         
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+   
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        
-          <!--Aca se colocaría detalles del Dashboard-->
 
-          <p>datos diarios</p>
-          <div class="row">
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="info-box">
-                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+
+
+
+
+
+
+
+
+    <style>
   
-                <div class="info-box-content">
-                  <span class="info-box-text">comentarios</span>
-                  <span class="info-box-number">
-                    10
-                   
-                  </span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="info-box mb-3">
-                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">me gusta</span>
-                  <span class="info-box-number">41,410</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-  
-            <!-- fix for small devices only -->
-            <div class="clearfix hidden-md-up"></div>
-  
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="info-box mb-3">
-                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">ventas</span>
-                  <span class="info-box-number">760</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-12 col-sm-6 col-md-3">
-              <div class="info-box mb-3">
-                <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-  
-                <div class="info-box-content">
-                  <span class="info-box-text">Nuevos miembros</span>
-                  <span class="info-box-number">2,000</span>
-                </div>
-                <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-            </div>
-            <!-- /.col -->
-          </div>
+      canvas {
+          max-width: 1000px;
+          max-height: 300px;
+          margin-bottom: 20px;
+      }
+  </style>
 
 
-<div class="col-lg-3 col-6">
-
-            <div class="small-box bg-info">
-            <div class="inner">
-            <h3>150</h3>
-            <p>productos</p>
-            </div>
-            <div class="icon">
-            <i class="ion ion-bag"></i>
-            </div>
-            <a href="index2.html#Productos" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
- </div>
-</div>
-
-<div class="col-lg-3 col-6">
-
-  <div class="small-box bg-info">
-  <div class="inner">
-  <h3>750</h3>
-  <p>ingresos de usuarios en la pagina</p>
+    <div><h1>Datos del Sensor</h1>
+    <h2>Velocidad</h2>
+    <canvas id="velocidadChart"></canvas>
   </div>
-  <div class="icon">
-  <i class="ion ion-bag"></i>
+  <div> <h2>Distancia</h2>
+    <canvas id="distanciaChart"></canvas>
   </div>
-  <a href="index2.html" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-</div>
-</div>
+  <script>
+    let velocidadChart, distanciaChart; // Declarar los gráficos para reutilizarlos
+    const maxDataPoints = 10; // Número máximo de puntos a mostrar
 
-          
+    async function fetchSensorData() {
+        try {
+            const response = await fetch('http://localhost/lumen/public/sensor-data');
+            if (!response.ok) throw new Error('Error en la solicitud');
+            const data = await response.json();
 
+            // Solo mantenemos los últimos 10 datos
+            const slicedData = data.slice(-maxDataPoints);
 
+            // Crear nuevas etiquetas y datasets
+            const labels = slicedData.map((dato, index) => `Dato ${index + 1}`);
+            const velocidadData = slicedData.map(dato => dato.velocidad);
+            const distanciaData = slicedData.map(dato => dato.distancia);
+
+            // Crear degradado de color
+            const velocidadGradient = createGradient('rgba(54, 162, 235, 0.8)', 'rgba(54, 162, 46 , 0.2)');
+            const distanciaGradient = createGradient('rgba(255, 159, 64, 0.8)', 'rgba(255, 159, 64, 0.2)');
+
+            // Actualizar o crear el gráfico de velocidad
+            if (velocidadChart) {
+                velocidadChart.data.labels = labels;
+                velocidadChart.data.datasets[0].data = velocidadData;
+                velocidadChart.update();
+            } else {
+                const ctxVelocidad = document.getElementById('velocidadChart').getContext('2d');
+                velocidadChart = initChart(ctxVelocidad, 'Velocidad (cm/s)', labels, velocidadData, velocidadGradient, 10);
+            }
+
+            // Actualizar o crear el gráfico de distancia
+            if (distanciaChart) {
+                distanciaChart.data.labels = labels;
+                distanciaChart.data.datasets[0].data = distanciaData;
+                distanciaChart.update();
+            } else {
+                const ctxDistancia = document.getElementById('distanciaChart').getContext('2d');
+                distanciaChart = initChart(ctxDistancia, 'Distancia (cm)', labels, distanciaData, distanciaGradient, 60);
+            }
+        } catch (error) {
+            console.error('Error al obtener los datos del sensor:', error);
+        }
+    }
+
+    function initChart(ctx, title, labels, data, gradient, maxRange) {
+        return new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: title,
+                    data: data,
+                    borderColor: gradient,
+                    backgroundColor: gradient,
+                    borderWidth: 2,
+                    tension: 0.4,
+                    pointBackgroundColor: gradient,
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: title,
+                        font: {
+                            size: 16
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        suggestedMax: maxRange,
+                        ticks: {
+                            callback: function (value) {
+                                return `${value} ${title.includes('Velocidad') ? 'cm/s' : 'cm'}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    function createGradient(startColor, endColor) {
+        const ctx = document.createElement('canvas').getContext('2d');
+        const gradient = ctx.createLinearGradient(0, 0, 1000, 0);
+        gradient.addColorStop(0, startColor); // Color inicial
+        gradient.addColorStop(1, endColor);  // Color final
+        return gradient;
+    }
+
+    // Llamar a fetchSensorData cada 2 segundos
+    fetchSensorData(); // Llamada inicial
+    setInterval(fetchSensorData, 2000); // Actualizar cada 2 segundos
+</script>
 
 </div><!-- /.container-fluid -->
   
@@ -251,13 +235,7 @@
     </section>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    Pie de la página Izquierdo
-    <div class="float-right d-none d-sm-inline-block">
-      Pie de la página Derecho
-    </div>
-  </footer>
+
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -269,9 +247,7 @@
 
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js" integrity="sha512-7rusk8kGPFynZWu26OKbTeI+QPoYchtxsmPeBqkHIEXJxeun4yJ4ISYe7C6sz9wdxeE1Gk3VxsIWgCZTc+vX3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- ChartJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

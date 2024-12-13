@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del Sensor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            width: 100%; /* Ajusta automáticamente el tamaño */
+            height: 300px; /* Altura fija */
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Datos del Sensor</h1>
+        <h2>Velocidad</h2>
+        <canvas id="velocidadChart"></canvas>
+    </div>
+    <div>
+        <h2>Distancia</h2>
+        <canvas id="distanciaChart"></canvas>
+    </div>
+
+    <script>
+        let velocidadChart, distanciaChart; // Declarar los gráficos para reutilizarlos
+        const maxDataPoints = 10; // Número máximo de puntos a mostrar
+
+        async function fetchSensorData() {
+            try {
+                const response = await fetch('http://localhost/lumen/public/sensor-data');
+                if (!response.ok) throw new Error('Error en la solicitud');
+                const data = await response.json();
+
+                // Solo mantenemos los últimos 10 datos
+                const slicedData = data.slice(-maxDataPoints);
+
+                // Crear nuevas etiquetas y datasets
+                const labels = slicedData.map((_, index) => `Dato ${index + 1}`);
+                const velocidadData = slicedData.map(dato => dato.velocidad);
+                const distanciaData = slicedData.map(dato => dato.distancia);
+
+                // Crear degradados
+                const ctxVelocidad = document.getElementById('velocidadChart').getContext('2d');
+                const ctxDistancia = document.getElementById('distanciaChart').getContext('2d');
+                const velocidadGradient = createGradient(ctxVelocidad, 'rgba(54, 162, 235, 0.8)', 'rgba(54, 162, 46 , 0.2)');
+                const distanciaGradient = createGradient(ctxDistancia, 'rgba(255, 159, 64, 0.8)', 'rgba(255, 159, 64, 0.2)');
+
+                // Actualizar o crear el gráfico de velocidad
+                if (velocidadChart) {
+                    velocidadChart.data.labels = labels;
+                    velocidadChart.data.datasets[0].data = velocidadData;
+                    velocidadChart.update();
+                } else {
+                    velocidadChart = initChart(ctxVelocidad, 'Velocidad (cm/s)', labels, velocidadData, velocidadGradient, 10);
+                }
+
+                // Actualizar o crear el gráfico de distancia
+                if (distanciaChart) {
+                    distanciaChart.data.labels = labels;
+                    distanciaChart.data.datasets[0].data = distanciaData;
+                    distanciaChart.update();
+                } else {
+                    distanciaChart = initChart(ctxDistancia, 'Distancia (cm)', labels, distanciaData, distanciaGradient, 60);
+                }
+            } catch (error) {
+                console.error('Error al obtener los datos del sensor:', error);
+            }
+        }
+
+        function initChart(ctx, title, labels, data, gradient, maxRange) {
+            return new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: title,
+                        data: data,
+                        borderColor: gradient,
+                        backgroundColor: gradient,
+                        borderWidth: 2,
+                        tension: 0.4,
+                        pointBackgroundColor: gradient,
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        title: {
+                            display: true,
+                            text: title,
+                            font: {
+                                size: 16
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            suggestedMax: maxRange,
+                            ticks: {
+                                callback: function (value) {
+                                    return `${value} ${title.includes('Velocidad') ? 'cm/s' : 'cm'}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function createGradient(ctx, startColor, endColor) {
+            const gradient = ctx.createLinearGradient(0, 0, ctx.canvas.width, 0);
+            gradient.addColorStop(0, startColor);
+            gradient.addColorStop(1, endColor);
+            return gradient;
+        }
+
+        // Llamar a fetchSensorData cada 2 segundos
+        fetchSensorData(); // Llamada inicial
+        setInterval(fetchSensorData, 2000); // Actualizar cada 2 segundos
+    </script>
+</body>
+</html>
